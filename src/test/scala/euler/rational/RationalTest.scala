@@ -11,7 +11,6 @@ class RationalTest extends FlatSpec {
      val rat2 = new Rational(3, 7)
      val rat1St = "Rational(369,861)"
      val rat2St = "Rational(3,7)"
-     println(s"compare(rat1, rat2) = ${rat1.compare(rat1, rat2)}")
      assert(!(rat1 > rat2), s"$rat1 is not greater than $rat2")
      assert(!(rat1 < rat2), s"$rat1 is not less than $rat2")
      assert(rat1 eq rat2, s"$rat1 equals $rat2")

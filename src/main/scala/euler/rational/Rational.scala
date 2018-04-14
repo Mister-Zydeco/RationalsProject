@@ -6,6 +6,7 @@ class Rational[T](val nu: T, val de: T)(implicit numeric: Numeric[T])
   // nu is short for "numerator"; de, for "denominator"
   require(de != numeric.zero)  
   
+  val numericCopy = numeric   // workaround for "private value numeric escaping from scope"
   implicit def conv(lhs: T) = numericCopy.mkNumericOps(lhs)
   
   def plus(x: Rational[T], y: Rational[T]) = 
@@ -18,7 +19,6 @@ class Rational[T](val nu: T, val de: T)(implicit numeric: Numeric[T])
     new Rational(x.nu * y.de, x.de * y.nu)
  
   def negate(x: Rational[T]) = new Rational(-x.nu, x.de)
-  val numericCopy = numeric   // workaround for "private value num escaping from scope"
   def fromInt(x: Int) = {
     new Rational(numericCopy.fromInt(x), numericCopy.fromInt(1))
   }
