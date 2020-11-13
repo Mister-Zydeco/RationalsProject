@@ -8,6 +8,10 @@ In src/main/scala/euler/rational/Rational.scala, if I try to use the expected im
 private value numeric escapes its defining scope as part of type Rational.this.numeric.Ops
 ```
 
+UPDATE:
+11/13/20: I've just now found what might be a useful post on Reddit about this message. I admit to be ignorant of the consequences of letting a private
+value escape from its scope. Does that mean it pollutes the namespace of the sxope into which it has escaped? To be continued...
+
 So I worked aorund this by doing
 ```scala
 val numericCopy = numeric
